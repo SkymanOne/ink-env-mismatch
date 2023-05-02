@@ -1,0 +1,32 @@
+[package]
+name = "assets"
+version = "0.1.0"
+authors = ["[your_name] <[your_email]>"]
+edition = "2021"
+
+[dependencies]
+ink = { version = "4.2", default-features = false }
+
+scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
+scale-encode = {version = "0.1.2", optional = true}
+scale-decode = {version = "0.5", optional = true}
+scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
+derive_more = "0.99"
+
+[dev-dependencies]
+ink_e2e = "4.2"
+
+[lib]
+path = "lib.rs"
+
+[features]
+default = ["std"]
+std = [
+    "ink/std",
+    "scale/std",
+    "scale-info/std",
+    "scale-encode",
+    "scale-decode"
+]
+ink-as-dependency = []
+e2e-tests = []
