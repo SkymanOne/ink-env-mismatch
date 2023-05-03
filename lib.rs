@@ -26,7 +26,7 @@ pub struct CustomEnv;
 
 impl Environment for CustomEnv {
     //Can be instantiated and executed with mismatch but fails when emitting more topics than allowed by the pallet
-    const MAX_EVENT_TOPICS: usize = 3;
+    const MAX_EVENT_TOPICS: usize = 4;
     //`MyAccountId` fails
     type AccountId = ink::primitives::AccountId;
     //u64 fail instantiation
@@ -118,7 +118,7 @@ mod assets {
         topic_two: u128,
         #[ink(topic)]
         topic_three: u128,
-        // #[ink(topic)]
+        #[ink(topic)]
         topic_four: u128,
         // #[ink(topic)]
         topic_five: u128,
