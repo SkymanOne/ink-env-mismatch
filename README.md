@@ -11,7 +11,7 @@ was used for testing.
  I am going to structure this mini-report with the effects of mismatching each individual type of `Environment` trait.
 
 ## `MAX_EVENT_TOPICS`
-Mistamatching (below or great) this value has no effect on the instantiation of the contract if it doesn't emit any events in the constructor. What matters is the actual number of topics being emitted in the event. If it exceeds the limit, `TooManyTopics` dispatch error is thrown. I also found out that `substrate-contracts-node` only supports 3 topics max, instead of 4.
+Mistamatching (below or great) this value has no effect on the instantiation of the contract if it doesn't emit any events in the constructor. What matters is the actual number of topics being emitted in the event. If it exceeds the limit, `TooManyTopics` dispatch error is thrown. 
 
 ## `AccoundId`
 This one was harder to reproduce because it requires implementing or deriving requires traits bounds imposed by `Environment`.  For the sake of the experiment, I introduced my own definition `pub struct MyAccountId([u8; 16]);` which has a shorter byte slice than the original type. It was also easy to auto-derive `StorageLayout` with it.
